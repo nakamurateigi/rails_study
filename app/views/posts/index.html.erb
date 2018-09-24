@@ -1,0 +1,19 @@
+<h2>
+  <%= link_to "Add new", "/posts/new", class: "header-menu" %>
+  My Posts
+</h2>
+<ul>
+  <% @posts.each do |post| %>
+  <li>
+  <%= link_to post.title, "/posts/#{post.id}" %>
+  <%= link_to "[Edit]", "/posts/#{post.id}/edit", class: "command"%>
+  <%= link_to "[X]", 
+    "/posts/#{post.id}/destroy",
+    #method: :delete,
+    #method: :post,
+    method: "post",
+    class: "command",
+    data: {confirm: "sure?"}    %>
+  </li>
+  <% end %>
+</ul>
